@@ -1,0 +1,14 @@
+{
+    "estudiantes":[
+        {
+            "ID":"1234",
+            "Nombre":"egarrrr",
+            "Apellido":"barragan",
+            "acudiente":"hermenejilda",
+            "celular":"310932032",
+            "fijo":"1382032",
+            "estado":"Proceso de ingreso",
+            "riesgo":"ninguno"
+        }
+    ]
+}
