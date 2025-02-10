@@ -1,1 +1,14 @@
-{"egar": [{"Proyecto": 80, "Filtro": 90, "Trabajos": 100}, {"Filtro": 0}, {"Trabajos": 0}]}
+{
+    "notas": [
+        {
+            "Nombre":"egarrrrrr",
+            "Proyecto": 80,
+            "Filtro": 90,
+            "Trabajos": 100
+        },
+        {
+        },
+        {
+        }
+    ]
+}
