@@ -128,7 +128,7 @@ while f==True:
                 while tru==True:
                     print("Bienvenido/a ", nome)
                     print("Que desea hacer?")
-                    print("1 para ver informacion || 2 para editar informacion || 3 para añadir informacion || 4 para salir")
+                    print("1 para ver informacion || 2 para editar informacion || 3 para añadir informacion || 4 para grupos || 5 para salir")
                     inf=int(input(": "))
                     if inf==1:
                         print("De cual perfil quiere ver la informacion?")
@@ -136,46 +136,37 @@ while f==True:
                         infor=int(input(": "))
                         if infor==1:
                             rta2="estudiantes"
-                            print("Ingrese el ID del estudiante a conocer")
-                            iddd=input(": ")
                             mostrar={}
                             mostrar=abrirJSONr(rta2)
                             for i in range (len(mostrar[rta2])):
-                                confirmar=mostrar[rta2][i]["ID"]
-                                if confirmar==iddd:
-                                    nombre=mostrar[rta2][i]["Nombre"]
-                                    ape=mostrar[rta2][i]["Apellido"]
-                                    dir=mostrar[rta2][i]["direccion"]
-                                    acu=mostrar[rta2][i]["acudiente"]
-                                    cel=mostrar[rta2][i]["celular"]
-                                    fijo=mostrar[rta2][i]["fijo"]
-                                    est=mostrar[rta2][i]["estado"]
-                                    ries=mostrar[rta2][i]["riesgo"]
-                                    print("ID:",iddd,"Nombre:",nombre,"Apellido:","Direccion:",dir,ape,"Acudiente:",acu,"Celular:",cel,"Telefono fijo:",fijo,"Estado:",est,"Riesgo:",ries)
+                                iddd=mostrar[rta2][i]["ID"]
+                                nombre=mostrar[rta2][i]["Nombre"]
+                                ape=mostrar[rta2][i]["Apellido"]
+                                dir=mostrar[rta2][i]["direccion"]
+                                acu=mostrar[rta2][i]["acudiente"]
+                                cel=mostrar[rta2][i]["celular"]
+                                fijo=mostrar[rta2][i]["fijo"]
+                                est=mostrar[rta2][i]["estado"]
+                                ries=mostrar[rta2][i]["riesgo"]
+                                print("Estudiante ",i," ID:",iddd,"Nombre:",nombre,"Apellido:","Direccion:",dir,ape,"Acudiente:",acu,"Celular:",cel,"Telefono fijo:",fijo,"Estado:",est,"Riesgo:",ries)
                         if infor==2:
                             rta2="trainers"
-                            print("Ingrese el ID del trainer a conocer")
-                            iddd=input(": ")
                             mostrar={}
                             mostrar=abrirJSONr(rta2)
                             for i in range (len(mostrar[rta2])):
-                                confirmar=mostrar[rta2][i]["ID"]
-                                if confirmar==iddd:
-                                    nombre=mostrar[rta2][i]["Nombre"]
-                                    ape=mostrar[rta2][i]["Apellido"]
-                                    rutaa=mostrar[rta2][i]["Ruta"]
-                                    print("ID:", iddd,"Nombre:",nombre,"Apellido:",ape,"Ruta:",rutaa)
+                                iddd=mostrar[rta2][i]["ID"]
+                                nombre=mostrar[rta2][i]["Nombre"]
+                                ape=mostrar[rta2][i]["Apellido"]
+                                rutaa=mostrar[rta2][i]["Ruta"]
+                                print("Trainer ",i," ID:", iddd,"Nombre:",nombre,"Apellido:",ape,"Ruta:",rutaa)
                         if infor==3:
                             rta2="coordinador"
-                            print("Ingrese el ID del coordinador a conocer")
-                            iddd=input(": ")
                             mostrar={}
                             mostrar=abrirJSONr(rta2)
                             for i in range (len(mostrar[rta2])):
-                                confirmar=mostrar[rta2][i]["ID"]
-                                if confirmar==iddd:
-                                    nombre=mostrar[rta2][i]["Nombre"]
-                                    print("ID:",iddd,"Nombre:",nombre)
+                                iddd=mostrar[rta2][i]["ID"]
+                                nombre=mostrar[rta2][i]["Nombre"]
+                                print("Coordinador ",i," ID:",iddd,"Nombre:",nombre)
                     elif inf==2:
                         print("De cual perfil quiere editar informacion?")
                         print("1 para camper || 2 para trainers || 3 para coordinadores")
@@ -251,7 +242,68 @@ while f==True:
                             idd=(len(mostrar[rta2]))+1
                             mostrar[rta2].append({"ID":idd,"Nombre":nombe,"Apellido":ape,"direccion":dir,"acudiente":acu,"celular":cel,"fijo":fijo,"estado":estado,"riesgo":ries,"ruta":rutaa})
                             guardarJSON(rta2,mostrar)
+                        if infor==2:
+                            rta2="trainers"
+                            mostrar={}
+                            mostrar=abrirJSONr(rta2)
+                            nombe=input("Ingrese el nombre: ")
+                            ape=input("Ingrese el apellido: ")
+                            rutaa=input("Ingrese la ruta del docente: ")
+                            idd=len(mostrar[rta2])+1
+                            mostrar[rta2].append({"ID":idd,"Nombre":nombe,"Apellido":ape,"ruta":rutaa})
+                            guardarJSON(rta2,mostrar)
+                        if infor==3:
+                            rta2="coordinador"
+                            mostrar={}
+                            mostrar=abrirJSONr(rta2)
+                            nombe=input("Ingrese el nombre: ")
+                            idd=len(mostrar[rta2])+1
+                            mostrar[rta2].append({"ID":idd,"Nombre":nombe})
+                            guardarJSON(rta2,mostrar)
                     elif inf==4:
+                        verdad=True
+                        while verdad:
+                            rta2="grupo"
+                            mostrar={}
+                            mostrar=abrirJSONr(rta2)
+                            print("Presione 1 para ver la información || 2 para editar los || 3 para añadir || 4 para asignar estudiantes || 5 para salir")
+                            infor=int(input(": "))
+                            if infor==1:
+                                for i in range (len(mostrar[rta2])):
+                                    salon=mostrar[rta2][i]["salon"]
+                                    trainer=mostrar[rta2][i]["trainer"]
+                                    horario=mostrar[rta2][i]["horario"]
+                                    rutaa=mostrar[rta2][i]["ruta"]
+                                    print("Grupo ",i+1," Salon:",salon,"Trainer:",trainer,"Horario:",horario,"Ruta:",rutaa)
+                                    print("Estudiantes: ")
+                                    for q in range(len(mostrar[rta2][i]["estudiantes"])):
+                                        estu=mostrar[rta2][i]["estudiantes"][q]["Nombre"]
+                                        print("Estudiante ",i+1," ",estu)
+                            elif infor==2:
+                                print("Ingrese el numero del grupo a editar")
+                                edit=int(input(": "))
+                                edic=edit-1
+                                nombe=input("Ingrese el nombre del salón asignado: ")
+                                trainer=input("Ingrese el nombre del trainer asigando: ")
+                                ## debatir el editar estudiante
+                                horario=input("Ingrese el numero del horario asignado: ")
+                                rutaa=input("Ingrese el numero de la ruta asignada: ")
+                                mostrar[rta2][edic]["salon"]=nombe
+                                mostrar[rta2][edic]["trainer"]=trainer
+                                mostrar[rta2][edic]["horario"]=horario
+                                mostrar[rta2][edic]["ruta"]=rutaa
+                                guardarJSON(rta2,mostrar)
+                            elif infor==3:
+                                nombe=input("Ingrese el nombre del salon: ")
+                                trainer=input("Ingrese el nombre del tariner: ")
+                                horario=input("Ingrese el numero del horario: ")
+                                rutaa=input("Ingrese el numero de la ruta: ")
+                                estudiantes=[]
+                                mostrar[rta2].append({"salon":nombe,"trainer":trainer,"estudiantes":estudiantes,"horario":horario,"ruta":rutaa})
+                                guardarJSON(rta2,mostrar)
+                            elif infor==5:
+                                verdad=False
+                    elif inf==5:
                         tru=False
                         lie=False
     elif x==4:  
