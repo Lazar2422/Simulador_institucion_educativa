@@ -82,20 +82,36 @@ while f==True:
                 if (nam==nome) & (id==idn):
                     tru=True
                     z=i
+                    break
             if tru==True:
                 print("Bienvenido ", nome)
                 while tru==True:
                     print("Que te gustaria hacer?")
-                    print("1 para ver tu informaicon || 2 para ver tus grupos || 3 para calificar estudiantes || 4 para salir")
+                    print("1 para ver tu informaicon || 2 para ver tus grupos || 3 para ver estudiantes || 4 para calificar estudiantes || 5 para salir")
                     inf=int(input(": "))
                     if inf==1:
                         ape=perfil[rta][z]["Apellido"]
                         ruta=perfil[rta][z]["Ruta"]
                         print("ID:",id,"Nombre:", nome,"Apellido:",ape,"Ruta:", ruta)
-                    elif inf==4:
+                    elif inf==3:
+                        rta2="estudiantes"
+                        mostrar={}
+                        mostrar=abrirJSONr(rta2)
+                        for i in range (len(mostrar[rta2])):
+                            iddd=mostrar[rta2][i]["ID"]
+                            nombre=mostrar[rta2][i]["Nombre"]
+                            ape=mostrar[rta2][i]["Apellido"]
+                            dir=mostrar[rta2][i]["direccion"]
+                            acu=mostrar[rta2][i]["acudiente"]
+                            cel=mostrar[rta2][i]["celular"]
+                            fijo=mostrar[rta2][i]["fijo"]
+                            est=mostrar[rta2][i]["estado"]
+                            ries=mostrar[rta2][i]["riesgo"]
+                            print("Estudiante ",i," ID:",iddd,"Nombre:",nombre,"Apellido:","Direccion:",dir,ape,"Acudiente:",acu,"Celular:",cel,"Telefono fijo:",fijo,"Estado:",est,"Riesgo:",ries)
+                    elif inf==5:
                         tru=False
                         lie=False
-                    elif inf==3:
+                    elif inf==4:
                         rta1="notas"
                         notas={}
                         notas=abrirJSONr(rta1)
