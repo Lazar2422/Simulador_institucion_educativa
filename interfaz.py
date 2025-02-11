@@ -47,7 +47,7 @@ while f==True:
                         fijo=perfil[rta][z]["fijo"]
                         est=perfil[rta][z]["estado"]
                         ries=perfil[rta][z]["riesgo"]
-                        print("ID:",id,"Nombre:",nome,"Apellido:","Direccion:",dir,ape,"Acudiente:",acu,"Celular:",cel,"Telefono fijo:",fijo,"Estado:",est,"Riesgo:",ries)
+                        print("ID:",id,"Nombre:",nome,"Apellido:",ape,"Direccion:",dir,"Acudiente:",acu,"Celular:",cel,"Telefono fijo:",fijo,"Estado:",est,"Riesgo:",ries)
                     elif inf==2:
                         ## notas del camper
                         rta2="notas"
@@ -266,7 +266,7 @@ while f==True:
                             rta2="grupo"
                             mostrar={}
                             mostrar=abrirJSONr(rta2)
-                            print("Presione 1 para ver la información || 2 para editar los || 3 para añadir || 4 para asignar estudiantes || 5 para salir")
+                            print("Presione 1 para ver la información || 2 para editar || 3 para añadir || 4 para asignar estudiantes || 5 para salir")
                             infor=int(input(": "))
                             if infor==1:
                                 for i in range (len(mostrar[rta2])):
@@ -294,12 +294,16 @@ while f==True:
                                 mostrar[rta2][edic]["ruta"]=rutaa
                                 guardarJSON(rta2,mostrar)
                             elif infor==3:
-                                nombe=input("Ingrese el nombre del salon: ")
-                                trainer=input("Ingrese el nombre del tariner: ")
+                                nombe=int(input("Ingrese el numero del salon (1 Artemis || 2 Apolo || 3 Sputnik): "))
+                                salo={}
+                                rta3="slaon"
+                                salo=abrirJSONr(rta3)
+                                nombre=salo[rta3][nombe]["Nombre"]
+                                trainer=input("Ingrese el nombre del trainer: ")
                                 horario=input("Ingrese el numero del horario: ")
                                 rutaa=input("Ingrese el numero de la ruta: ")
                                 estudiantes=[]
-                                mostrar[rta2].append({"salon":nombe,"trainer":trainer,"estudiantes":estudiantes,"horario":horario,"ruta":rutaa})
+                                mostrar[rta2].append({"salon":nombre,"trainer":trainer,"estudiantes":estudiantes,"horario":horario,"ruta":rutaa})
                                 guardarJSON(rta2,mostrar)
                             elif infor==5:
                                 verdad=False
