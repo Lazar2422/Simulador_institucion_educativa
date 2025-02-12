@@ -147,14 +147,48 @@ while f==True:
                         rta1="notas"
                         notas={}
                         notas=abrirJSONr(rta1)
-                        estu=input("Ingrese el nombre del estudiante a calificar: ")
+                        estu=input("Ingrese el ID del estudiante a calificar: ")
+                        for i in range(len(notas[rta1])):
+                            confirmar=notas[rta1][i]["ID"]
+                            if confirmar==estu:
+                                for q in range(len(notas[rta1][i]["notas"])):
+                                    b=notas[rta1][i]["notas"][q]
+                                    print("Presione ",q+1, " para calificar ",b)
+                                s=i
+                                break
+                        nota=(int(input(": ")))
+                        match nota:
+                            case 1:
+                                mod="Intro"
+                            case 2:
+                                mod="Python"
+                            case 3:
+                                mod="HTML/CSS"
+                            case 4:
+                                mod="Scrum"
+                            case 5:
+                                mod="Git"
+                            case 6:
+                                mod="JavaScript"
+                            case 7:
+                                mod="Intro Back"
+                            case 8:
+                                mod="Intro BBDD"
+                            case 9:
+                                mod="MySQL"
+                            case 10:
+                                mod="Java"
+                            case 11:
+                                mod="PostgreSQL"
+                            case 12:
+                                mod="SpringBoot"
                         proyec=int(input("Nota del proyecto: "))
                         filtro=int(input("Nota del filtro: "))
                         traba=int(input("Nota del trabajos: "))
-                        notas[estu][0]["Proyecto"]=proyec
-                        notas[estu][0]["Filtro"]=filtro
-                        notas[estu][0]["Trabajos"]=traba
-                        guardarJSON(rta1,notas)
+                        ## arreglar mod con pedro
+                        notas[rta1][s]["notas"][nota][mod][0]["Proyecto"]=proyec
+                        notas[rta1][s]["notas"][nota][mod][0]["Filtro"]=filtro
+                        notas[rta1][s]["notas"][nota][mod][0]["Trabajos"]=traba
     elif x==3:
         ## funciones de coordinador
         ## funciones de coordinador

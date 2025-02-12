@@ -2,6 +2,7 @@
     "notas": [
         {
             "Nombre":"egarrrrrr",
+            "ID":"1",
             "notas":[
                 {
                 "Intro":[
@@ -78,13 +79,6 @@
                         "Trabajos": 100}
                     ]}
             ]
-            
-        },
-        {
-            "Nombre":"egarcito",
-            "Proyecto":0,
-            "Filtro":90,
-            "Trabajos":0
         }
     ]
 }
