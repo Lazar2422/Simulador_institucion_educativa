@@ -9,74 +9,74 @@
                     "Proyecto": 80,
                     "Filtro": 90,
                     "Trabajos": 100}
-                ],
+                ]
+                },{
                 "Python":[
                     {
                         "Proyecto": 80,
                         "Filtro": 90,
                         "Trabajos": 100}
-                    ],
+                    ]},{
                 "HTML/CSS":[
                     {
                         "Proyecto": 80,
                         "Filtro": 90,
                         "Trabajos": 100}
-                    ],
+                    ]},{
                 "Scrum":[
                     {
                         "Proyecto": 80,
                         "Filtro": 90,
                         "Trabajos": 100}
-                    ],
+                    ]},{
                 "Git":[
                     {
                         "Proyecto": 80,
                         "Filtro": 90,
                         "Trabajos": 100}
-                    ],
+                    ]},{
                 "JavaScript":[
                     {
                         "Proyecto": 80,
                         "Filtro": 90,
                         "Trabajos": 100}
-                    ],
+                    ]},{
                 "Intro Back":[
                     {
                         "Proyecto": 80,
                         "Filtro": 90,
                         "Trabajos": 100}
-                    ],
+                    ]},{
                 "Intro BBDD":[
                     {
                         "Proyecto": 80,
                         "Filtro": 90,
                         "Trabajos": 100}
-                    ],
+                    ]},{
                 "MySQL":[
                     {
                         "Proyecto": 80,
                         "Filtro": 90,
                         "Trabajos": 100}
-                    ],
+                    ]},{
                 "Java":[
                     {
                         "Proyecto": 80,
                         "Filtro": 90,
                         "Trabajos": 100}
-                    ],
+                    ]},{
                 "PostgreSQL":[
                     {
                         "Proyecto": 80,
                         "Filtro": 90,
                         "Trabajos": 100}
-                    ],
+                    ]},{
                 "SpringBoot":[
                     {
                         "Proyecto": 80,
                         "Filtro": 90,
                         "Trabajos": 100}
-                    ]
-            }
+                    ]}
             ]
             
         },

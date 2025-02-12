@@ -25,46 +25,76 @@ while f==True:
         lie=True
         while lie==True:
             ## Interfaz inicio de sesion
-            nam=input("Ingrese el usuario (nombre): ")
-            id=(input("Ingrese su ID: "))
-            for i in range (len(perfil[rta])):
-                nome=(perfil[rta][i]["Nombre"])
-                idn=perfil[rta][i]["ID"]
-                if (nam==nome) & (id==idn):
-                    tru=True
-                    z=i
-            if tru==True:
-                print("Bienvenido/a ", nam)
-                while tru==True:
-                    print("Presione 1 para ver tu informacion || 2 para ver tus notas || 3 para salir")
-                    inf=int(input(": "))
-                    if inf==1:
-                        ## informacion del camper
-                        ape=perfil[rta][z]["Apellido"]
-                        dir=perfil[rta][z]["direccion"]
-                        acu=perfil[rta][z]["acudiente"]
-                        cel=perfil[rta][z]["celular"]
-                        fijo=perfil[rta][z]["fijo"]
-                        est=perfil[rta][z]["estado"]
-                        ries=perfil[rta][z]["riesgo"]
-                        print("ID:",id,"Nombre:",nome,"Apellido:",ape,"Direccion:",dir,"Acudiente:",acu,"Celular:",cel,"Telefono fijo:",fijo,"Estado:",est,"Riesgo:",ries)
-                    elif inf==2:
-                        ## notas del camper
-                        rta2="notas"
-                        notas={}
-                        notas=abrirJSONr(rta2)
-                        for i in range (len(notas[rta2])):
-                            nombrecito=notas[rta2][i]["Nombre"]
-                            if nombrecito==nome:
-                                proyec=notas[rta2][i]["Proyecto"]
-                                filtro=notas[rta2][i]["Filtro"]
-                                traba=notas[rta2][i]["Trabajos"]
-                                print("Nota proyecto:",proyec,"Nota filtro:",filtro,"Nota trabajos.",traba)
-                                break
-                    elif inf==3:
-                        ## sale de interfaz de usuario y vuelve a seleccionar el perfil
+            registro=input("1 para iniciar sesión || 2 para registrarse")
+            if registro=="1":
+                perfil=abrirJSONr(rta)
+                nam=input("Ingrese el usuario (nombre): ")
+                id=(input("Ingrese su ID: "))
+                for i in range (len(perfil[rta])):
+                    nome=(perfil[rta][i]["Nombre"])
+                    idn=perfil[rta][i]["ID"]
+                    if (nam==nome) & (id==idn):
+                        tru=True
+                        z=i
+                        break
+                    else:
                         tru=False
-                        lie=False
+                if tru==True:
+                    print("Bienvenido/a ", nam)
+                    while tru==True:
+                        print("Presione 1 para ver tu informacion || 2 para ver tus notas || 3 para salir")
+                        inf=int(input(": "))
+                        if inf==1:
+                            ## informacion del camper
+                            ape=perfil[rta][z]["Apellido"]
+                            dir=perfil[rta][z]["direccion"]
+                            acu=perfil[rta][z]["acudiente"]
+                            cel=perfil[rta][z]["celular"]
+                            fijo=perfil[rta][z]["fijo"]
+                            est=perfil[rta][z]["estado"]
+                            ries=perfil[rta][z]["riesgo"]
+                            rutaa=perfil[rta][z]["ruta"]
+                            print("ID:",id,"Nombre:",nome,"Apellido:",ape,"Direccion:",dir,"Acudiente:",acu,"Celular:",cel,"Telefono fijo:",fijo,"Estado:",est,"Riesgo:",ries,"Ruta:",rutaa)
+                        elif inf==2:
+                            ## notas del camper
+                            rta2="notas"
+                            notas={}
+                            notas=abrirJSONr(rta2)
+                            for i in range (len(notas[rta2])):
+                                nombrecito=notas[rta2][i]["Nombre"]
+                                if nombrecito==nome:
+                                    proyec=notas[rta2][i]["Proyecto"]
+                                    filtro=notas[rta2][i]["Filtro"]
+                                    traba=notas[rta2][i]["Trabajos"]
+                                    print("Nota proyecto:",proyec,"Nota filtro:",filtro,"Nota trabajos.",traba)
+                                    break
+                        elif inf==3:
+                            ## sale de interfaz de usuario y vuelve a seleccionar el perfil
+                            tru=False
+                            lie=False
+            elif registro=="2":
+                rta2="estudiantes"
+                mostrar={}
+                ru=abrirJSONr("rutas")
+                mostrar=abrirJSONr(rta2)
+                nombe=input("Ingrese el nombre: ")
+                ape=input("Ingrese el apellido: ")
+                dir=input("Ingrese la direccion: ")
+                acu=input("Ingrese el nombre del acudiente: ")
+                cel=input("Ingrese el telefono celular: ")
+                fijo=input("Ingrese el telefono fijo: ")
+                ries="Nulo"
+                rutaaa=input("Ingrese la ruta a estudiar: ")
+                idd=str((len(mostrar[rta2]))+1)
+                print("su ID: ",idd)
+                if rutaaa=="1":
+                    rutaa="Java"
+                elif rutaaa=="2":
+                    rutaa="NodeJS"
+                elif rutaaa=="3":
+                    rutaa=".Net"
+                mostrar[rta2].append({"ID":idd,"Nombre":nombe,"Apellido":ape,"direccion":dir,"acudiente":acu,"celular":cel,"fijo":fijo,"estado":"Nuevo ingreso","riesgo":ries,"ruta":rutaa})
+                guardarJSON("estudiantes",mostrar)
     elif x==2:
         ## funciones de trainers
         ## funciones de trainers
@@ -83,6 +113,8 @@ while f==True:
                     tru=True
                     z=i
                     break
+                else:
+                    tru=False
             if tru==True:
                 print("Bienvenido ", nome)
                 while tru==True:
@@ -140,6 +172,9 @@ while f==True:
                 if (nam==nome) & (id==idn):
                     tru=True
                     z=i
+                    break
+                else:
+                    tru=False
             if tru==True:
                 while tru==True:
                     print("Bienvenido/a ", nome)
@@ -310,17 +345,46 @@ while f==True:
                                 mostrar[rta2][edic]["ruta"]=rutaa
                                 guardarJSON(rta2,mostrar)
                             elif infor==3:
-                                nombe=int(input("Ingrese el numero del salon (1 Artemis || 2 Apolo || 3 Sputnik): "))
+                                rta3="salones"
                                 salo={}
-                                rta3="slaon"
+                                trai=abrirJSONr("trainers")
                                 salo=abrirJSONr(rta3)
+                                for i in range(len(salo[rta3])):
+                                    a=salo[rta3][i]["Nombre"]
+                                    print(" 1 para salon",a)
+                                nombe=int(input())
                                 nombre=salo[rta3][nombe]["Nombre"]
-                                trainer=input("Ingrese el nombre del trainer: ")
+                                train=input("Ingrese el id del trainer: ")
+                                for i in range(len(trai["trainers"])):
+                                    verificar=trai["trainers"][i]["ID"]
+                                    if verificar==train:
+                                        trainer=trai["trainers"][i]["Nombre"]
                                 horario=input("Ingrese el numero del horario: ")
-                                rutaa=input("Ingrese el numero de la ruta: ")
+                                rutaaa=input("Ingrese el numero de la ruta: ")
+                                if rutaaa=="1":
+                                    rutaa="Java"
+                                elif rutaaa=="2":
+                                    rutaa="NodeJS"
+                                elif rutaaa=="3":
+                                    rutaa=".Net"
                                 estudiantes=[]
                                 mostrar[rta2].append({"salon":nombre,"trainer":trainer,"estudiantes":estudiantes,"horario":horario,"ruta":rutaa})
                                 guardarJSON(rta2,mostrar)
+                            elif infor==4:
+                                sal={}
+                                sal=abrirJSONr("grupo")
+                                camper={}
+                                camper=abrirJSONr("estudiantes")
+                                ingreso=input("Ingrese el ID del estudiante a añadir")
+                                sa=int(input("Ingrese numero del grupo"))
+                                for i in range (len(camper["estudiantes"])):
+                                    verificar=camper["estudiantes"][i]["ID"]
+                                    if verificar==ingreso:
+                                        nombre=camper["estudiantes"][i]["Nombre"]
+                                        iden=i-1
+                                        añadir=sal["grupo"][iden]["estudiantes"]
+                                        añadir.append({"Nombre":nombre})
+                                guardarJSON("grupo",sal)
                             elif infor==5:
                                 verdad=False
                     elif inf==5:
