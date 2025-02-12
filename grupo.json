@@ -9,15 +9,21 @@
                 }
             ],
             "horario": "1",
-            "ruta": "1"
+            "ruta": "Java"
         },
         {
             "salon": "Apolo",
             "trainer": "miguel",
-            "estudiantes": [
-            ],
+            "estudiantes": [],
             "horario": "3",
-            "ruta": "2"
+            "ruta": "NodeJS"
+        },
+        {
+            "salon": "Sputnik",
+            "trainer": "pedro",
+            "estudiantes": [],
+            "horario": "3",
+            "ruta": "NodeJS"
         }
     ]
 }

@@ -25,7 +25,7 @@ while f==True:
         lie=True
         while lie==True:
             ## Interfaz inicio de sesion
-            registro=input("1 para iniciar sesión || 2 para registrarse")
+            registro=input("1 para iniciar sesión || 2 para registrarse ")
             if registro=="1":
                 perfil=abrirJSONr(rta)
                 nam=input("Ingrese el usuario (nombre): ")
@@ -63,11 +63,10 @@ while f==True:
                             for i in range (len(notas[rta2])):
                                 nombrecito=notas[rta2][i]["Nombre"]
                                 if nombrecito==nome:
-                                    proyec=notas[rta2][i]["Proyecto"]
-                                    filtro=notas[rta2][i]["Filtro"]
-                                    traba=notas[rta2][i]["Trabajos"]
-                                    print("Nota proyecto:",proyec,"Nota filtro:",filtro,"Nota trabajos.",traba)
-                                    break
+                                    for q in range (len(notas[rta2][i][rta2])):
+                                        proyec=notas[rta2][i]["notas"][q]
+                                        print(proyec)
+                                break
                         elif inf==3:
                             ## sale de interfaz de usuario y vuelve a seleccionar el perfil
                             tru=False
@@ -84,7 +83,7 @@ while f==True:
                 cel=input("Ingrese el telefono celular: ")
                 fijo=input("Ingrese el telefono fijo: ")
                 ries="Nulo"
-                rutaaa=input("Ingrese la ruta a estudiar: ")
+                rutaaa=input("Ingrese la ruta a estudiar (1 Java || 2 NodeJS || 3 .Net): ")
                 idd=str((len(mostrar[rta2]))+1)
                 print("su ID: ",idd)
                 if rutaaa=="1":
@@ -151,49 +150,44 @@ while f==True:
                         for i in range(len(notas[rta1])):
                             confirmar=notas[rta1][i]["ID"]
                             if confirmar==estu:
-                                for q in range(len(notas[rta1][i]["notas"])):
-                                    b=notas[rta1][i]["notas"][q]
-                                    print("Presione ",q+1, " para calificar ",b)
                                 s=i
-                                break
-                        nota=(int(input(": ")))
-                        match nota:
-                            case 1:
-                                mod="Intro"
-                            case 2:
-                                mod="Python"
-                            case 3:
-                                mod="HTML/CSS"
-                            case 4:
-                                mod="Scrum"
-                            case 5:
-                                mod="Git"
-                            case 6:
-                                mod="JavaScript"
-                            case 7:
-                                mod="Intro Back"
-                            case 8:
-                                mod="Intro BBDD"
-                            case 9:
-                                mod="MySQL"
-                            case 10:
-                                mod="Java"
-                            case 11:
-                                mod="PostgreSQL"
-                            case 12:
-                                mod="SpringBoot"
+                                for q in range (12):
+                                    if q ==0:
+                                        print("presione ", q+1, " para Intro")
+                                    elif q ==1:
+                                        print("presione ", q+1, " para Python")
+                                    elif q ==2:
+                                        print("presione ", q+1, " para HTML/CSS")
+                                    elif q ==3:
+                                        print("presione ", q+1, " para Scrum")
+                                    elif q ==4:
+                                        print("presione ", q+1, " para Git")
+                                    elif q ==5:
+                                        print("presione ", q+1, " para JavaScript")
+                                    elif q ==6:
+                                        print("presione ", q+1, " para Intro Back")
+                                    elif q ==7:
+                                        print("presione ", q+1, " para Intro BBDD")
+                                    elif q ==8:
+                                        print("presione ", q+1, " para MySQL")
+                                    elif q ==9:
+                                        print("presione ", q+1, " para Java")
+                                    elif q ==10:
+                                        print("presione ", q+1, " para PostgreSQL")
+                                    elif q ==11:
+                                        print("presione ", q+1, " para SpringBoot")
+                            break
+                        nota=(int(input(": ")))-1
+                        nota1=str(nota)
                         proyec=int(input("Nota del proyecto: "))
                         filtro=int(input("Nota del filtro: "))
                         traba=int(input("Nota del trabajos: "))
                         ## arreglar mod con pedro
-                        notas[rta1][s]["notas"][nota][mod][0]["Proyecto"]=proyec
-                        notas[rta1][s]["notas"][nota][mod][0]["Filtro"]=filtro
-                        notas[rta1][s]["notas"][nota][mod][0]["Trabajos"]=traba
+                        notas[rta1][s]["notas"][nota][nota1][0]["Proyecto"]=proyec
+                        notas[rta1][s]["notas"][nota][nota1][0]["Filtro"]=filtro
+                        notas[rta1][s]["notas"][nota][nota1][0]["Trabajos"]=traba
+                        guardarJSON(rta1,notas)
     elif x==3:
-        ## funciones de coordinador
-        ## funciones de coordinador
-        ## funciones de coordinador
-        ## funciones de coordinador
         rta="coordinador"
         perfil=(abrirJSONr(rta))
         lie=True
@@ -213,7 +207,7 @@ while f==True:
                 while tru==True:
                     print("Bienvenido/a ", nome)
                     print("Que desea hacer?")
-                    print("1 para ver informacion || 2 para editar informacion || 3 para añadir informacion || 4 para grupos || 5 para salir")
+                    print("1 para ver informacion || 2 para editar informacion || 3 para añadir informacion || 4 para grupos || 5 para calificar estudiantes || 6 para salir")
                     inf=int(input(": "))
                     if inf==1:
                         print("De cual perfil quiere ver la informacion?")
@@ -385,8 +379,8 @@ while f==True:
                                 salo=abrirJSONr(rta3)
                                 for i in range(len(salo[rta3])):
                                     a=salo[rta3][i]["Nombre"]
-                                    print(" 1 para salon",a)
-                                nombe=int(input())
+                                    print(i+1," para salon",a)
+                                nombe=(int(input())-1)
                                 nombre=salo[rta3][nombe]["Nombre"]
                                 train=input("Ingrese el id del trainer: ")
                                 for i in range(len(trai["trainers"])):
@@ -410,18 +404,37 @@ while f==True:
                                 camper={}
                                 camper=abrirJSONr("estudiantes")
                                 ingreso=input("Ingrese el ID del estudiante a añadir")
-                                sa=int(input("Ingrese numero del grupo"))
+                                for i in range(len(sal["grupo"])):
+                                    for q in range(len(camper["estudiantes"])):
+                                        if sal["grupo"][i]["ruta"]==camper["estudiantes"][q]["ruta"]:
+                                            if (len(sal["grupo"][i]["estudiantes"]))<=33:
+                                                print("Salon ", i+1, " disponible")
+                                sa=(int(input("Ingrese numero del grupo")))-1
                                 for i in range (len(camper["estudiantes"])):
                                     verificar=camper["estudiantes"][i]["ID"]
                                     if verificar==ingreso:
                                         nombre=camper["estudiantes"][i]["Nombre"]
-                                        iden=i-1
-                                        añadir=sal["grupo"][iden]["estudiantes"]
+                                        añadir=sal["grupo"][sa]["estudiantes"]
                                         añadir.append({"Nombre":nombre})
                                 guardarJSON("grupo",sal)
                             elif infor==5:
                                 verdad=False
                     elif inf==5:
+                        rta1="estudiantes"
+                        notas={}
+                        notas=abrirJSONr(rta1)
+                        estu=input("Ingrese el ID del estudiante a calificar: ")
+                        calificacion=int(input("Ingrese la calificacion del estudiantes"))
+                        for i in range(len(notas[rta1])):
+                            iden=notas[rta1][i]["ID"]
+                            if iden==estu:
+                                if calificacion>60:
+                                    notas[rta1][i]["estado"]="aprobado"
+                                else: 
+                                    notas[rta1][i]["estado"]="no aprobado"
+                                break
+                        guardarJSON(rta1,notas)
+                    elif inf==6:
                         tru=False
                         lie=False
     elif x==4:  
