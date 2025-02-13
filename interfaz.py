@@ -329,7 +329,7 @@ while f==True:
                             nombe=input("Ingrese el nombre: ")
                             ape=input("Ingrese el apellido: ")
                             rutaa=input("Ingrese la ruta del docente: ")
-                            idd=len(mostrar[rta2])+1
+                            idd=str(len(mostrar[rta2])+1)
                             mostrar[rta2].append({"ID":idd,"Nombre":nombe,"Apellido":ape,"ruta":rutaa})
                             guardarJSON(rta2,mostrar)
                         if infor==3:
@@ -337,7 +337,7 @@ while f==True:
                             mostrar={}
                             mostrar=abrirJSONr(rta2)
                             nombe=input("Ingrese el nombre: ")
-                            idd=len(mostrar[rta2])+1
+                            idd=str(len(mostrar[rta2])+1)
                             mostrar[rta2].append({"ID":idd,"Nombre":nombe})
                             guardarJSON(rta2,mostrar)
                     elif inf==4:
