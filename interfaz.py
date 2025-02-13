@@ -92,7 +92,7 @@ while f==True:
                     rutaa="NodeJS"
                 elif rutaaa=="3":
                     rutaa=".Net"
-                mostrar[rta2].append({"ID":idd,"Nombre":nombe,"Apellido":ape,"direccion":dir,"acudiente":acu,"celular":cel,"fijo":fijo,"estado":"Nuevo ingreso","riesgo":ries,"ruta":rutaa})
+                mostrar[rta2].append({"ID":idd,"Nombre":nombe,"Apellido":ape,"direccion":dir,"acudiente":acu,"celular":cel,"fijo":fijo,"estado":"Inscrito","riesgo":ries,"ruta":rutaa})
                 guardarJSON("estudiantes",mostrar)
     elif x==2:
         ## funciones de trainers
@@ -143,6 +143,7 @@ while f==True:
                         tru=False
                         lie=False
                     elif inf==4:
+                        rutaverificacion=abrirJSONr("estudiantes")
                         rta1="notas"
                         notas={}
                         notas=abrirJSONr(rta1)
@@ -152,31 +153,11 @@ while f==True:
                             if confirmar==estu:
                                 s=i
                                 for q in range (12):
-                                    if q ==0:
-                                        print("presione ", q+1, " para Intro")
-                                    elif q ==1:
-                                        print("presione ", q+1, " para Python")
-                                    elif q ==2:
-                                        print("presione ", q+1, " para HTML/CSS")
-                                    elif q ==3:
-                                        print("presione ", q+1, " para Scrum")
-                                    elif q ==4:
-                                        print("presione ", q+1, " para Git")
-                                    elif q ==5:
-                                        print("presione ", q+1, " para JavaScript")
-                                    elif q ==6:
-                                        print("presione ", q+1, " para Intro Back")
-                                    elif q ==7:
-                                        print("presione ", q+1, " para Intro BBDD")
-                                    elif q ==8:
-                                        print("presione ", q+1, " para MySQL")
-                                    elif q ==9:
-                                        print("presione ", q+1, " para Java")
-                                    elif q ==10:
-                                        print("presione ", q+1, " para PostgreSQL")
-                                    elif q ==11:
-                                        print("presione ", q+1, " para SpringBoot")
-                            break
+                                    b=str(q)
+                                    c=notas[rta1][i][rta1][q][b][0]["Nombre"]
+                                    print("Presione ",q+1, " para calificar ",c )
+                                    
+                                break
                         nota=(int(input(": ")))-1
                         nota1=str(nota)
                         proyec=int(input("Nota del proyecto: "))
@@ -186,8 +167,22 @@ while f==True:
                         notas[rta1][s]["notas"][nota][nota1][0]["Proyecto"]=proyec
                         notas[rta1][s]["notas"][nota][nota1][0]["Filtro"]=filtro
                         notas[rta1][s]["notas"][nota][nota1][0]["Trabajos"]=traba
+                        estao=(proyec*0.6)+(filtro*0.3)+(traba*0.1)
+                        for i in range(len(rutaverificacion["estudiantes"])):
+                            if rutaverificacion["estudiantes"][i]["ID"]==estu:
+                                veri=i
+                                break
+                        if estado<60:
+                            rutaverificacion["estudiantes"][veri]["riesgo"]="alto"
+                        notas[rta1][s]["notas"][nota][nota1][0]["Resultado"]=estao
                         guardarJSON(rta1,notas)
+                        guardarJSON("estudiantes",rutaverificacion)
     elif x==3:
+        ## funciones coordinador
+        ## funciones coordinador
+        ## funciones coordinador
+        ## funciones coordinador
+        ## funciones coordinador
         rta="coordinador"
         perfil=(abrirJSONr(rta))
         lie=True
@@ -207,7 +202,7 @@ while f==True:
                 while tru==True:
                     print("Bienvenido/a ", nome)
                     print("Que desea hacer?")
-                    print("1 para ver informacion || 2 para editar informacion || 3 para añadir informacion || 4 para grupos || 5 para calificar estudiantes || 6 para salir")
+                    print("1 para ver informacion || 2 para editar informacion || 3 para añadir informacion || 4 para grupos || 5 para calificar estudiantes || 6 para modulo de reportes || 7 para salir")
                     inf=int(input(": "))
                     if inf==1:
                         print("De cual perfil quiere ver la informacion?")
@@ -315,10 +310,16 @@ while f==True:
                             acu=input("Ingrese el nombre del acudiente: ")
                             cel=input("Ingrese el telefono celular: ")
                             fijo=input("Ingrese el telefono fijo: ")
-                            estado=input("Ingrese el estado del estudiante: ")
-                            ries=input("Ingrese el riesgo del estudiante: ")
-                            rutaa=input("Ingrese la ruta del estudiante: ")
-                            idd=(len(mostrar[rta2]))+1
+                            estado="Inscrito"
+                            ries="Nulo"
+                            rutaaa=input("Ingrese la ruta del estudiante (1 Java || 2 NodeJS || 3 .Net) : ")
+                            if rutaaa=="1":
+                                rutaa="Java"
+                            elif rutaaa=="2":
+                                rutaa="NodeJS"
+                            elif rutaaa=="3":
+                                rutaa=".Net"
+                            idd=str((len(mostrar[rta2]))+1)
                             mostrar[rta2].append({"ID":idd,"Nombre":nombe,"Apellido":ape,"direccion":dir,"acudiente":acu,"celular":cel,"fijo":fijo,"estado":estado,"riesgo":ries,"ruta":rutaa})
                             guardarJSON(rta2,mostrar)
                         if infor==2:
@@ -364,7 +365,6 @@ while f==True:
                                 edic=edit-1
                                 nombe=input("Ingrese el nombre del salón asignado: ")
                                 trainer=input("Ingrese el nombre del trainer asigando: ")
-                                ## debatir el editar estudiante
                                 horario=input("Ingrese el numero del horario asignado: ")
                                 rutaa=input("Ingrese el numero de la ruta asignada: ")
                                 mostrar[rta2][edic]["salon"]=nombe
@@ -423,6 +423,9 @@ while f==True:
                         rta1="estudiantes"
                         notas={}
                         notas=abrirJSONr(rta1)
+                        rta5="notas"
+                        asignar=abrirJSONr(rta5)
+                        longi=len(asignar[rta5])
                         estu=input("Ingrese el ID del estudiante a calificar: ")
                         calificacion=int(input("Ingrese la calificacion del estudiantes"))
                         for i in range(len(notas[rta1])):
@@ -430,11 +433,96 @@ while f==True:
                             if iden==estu:
                                 if calificacion>60:
                                     notas[rta1][i]["estado"]="aprobado"
+                                    asignar[rta5].append({"Nombre":notas[rta1][i]["Nombre"],"ID":iden,"notas":[]})
+                                    guardarJSON(rta5,asignar)
+                                    asignar=abrirJSONr(rta5)
+                                    longi2=len(asignar[rta5])
+                                    if notas[rta1][i]["ruta"]=="Java":
+                                        asignar[rta5][longi2-1][rta5].append({"0":[{"Nombre":"Intro","Proyecto": 0,"Filtro": 0,"Trabajos": 0,"Resultado":0}]})
+                                        asignar[rta5][longi2-1][rta5].append({"1":[{"Nombre":"Python","Proyecto": 0,"Filtro": 0,"Trabajos": 0,"Resultado":0}]})
+                                        asignar[rta5][longi2-1][rta5].append({"2": [{"Nombre":"HTML/CSS","Proyecto": 0,"Filtro": 0,"Trabajos": 0,"Resultado":0}]})
+                                        asignar[rta5][longi2-1][rta5].append({"3":[{"Nombre":"Scrum","Proyecto": 0,"Filtro": 0,"Trabajos": 0,"Resultado":0}]})
+                                        asignar[rta5][longi2-1][rta5].append({"4":[{"Nombre":"Git","Proyecto": 0,"Filtro": 0,"Trabajos": 0,"Resultado":0}]})
+                                        asignar[rta5][longi2-1][rta5].append({"5":[{"Nombre":"JavaScript","Proyecto": 0,"Filtro": 0,"Trabajos": 0,"Resultado":0}]})
+                                        asignar[rta5][longi2-1][rta5].append({"6":[{"Nombre":"Intro Back","Proyecto": 0,"Filtro": 0,"Trabajos": 0,"Resultado":0}]})
+                                        asignar[rta5][longi2-1][rta5].append({"7":[{"Nombre":"Intro BBDD","Proyecto": 0,"Filtro": 0,"Trabajos": 0,"Resultado":0}]})
+                                        asignar[rta5][longi2-1][rta5].append({"8":[{"Nombre":"MySQL","Proyecto": 0,"Filtro": 0,"Trabajos": 0,"Resultado":0}]})
+                                        asignar[rta5][longi2-1][rta5].append({"9":[{"Nombre":"Java","Proyecto": 0,"Filtro": 0,"Trabajos": 0,"Resultado":0}]})
+                                        asignar[rta5][longi2-1][rta5].append({"10":[{"Nombre":"PostgreSQL","Proyecto": 0,"Filtro": 0,"Trabajos": 0,"Resultado":0}]})
+                                        asignar[rta5][longi2-1][rta5].append({"11":[{"Nombre":"Springboot","Proyecto": 0,"Filtro": 0,"Trabajos": 0,"Resultado":0}]})
+                                    elif notas[rta1][i]["ruta"]=="NodeJS":
+                                        asignar[rta5][longi2-1][rta5].append({"0":[{"Nombre":"Intro","Proyecto": 0,"Filtro": 0,"Trabajos": 0,"Resultado":0}]})
+                                        asignar[rta5][longi2-1][rta5].append({"1":[{"Nombre":"Python","Proyecto": 0,"Filtro": 0,"Trabajos": 0,"Resultado":0}]})
+                                        asignar[rta5][longi2-1][rta5].append({"2": [{"Nombre":"HTML/CSS","Proyecto": 0,"Filtro": 0,"Trabajos": 0,"Resultado":0}]})
+                                        asignar[rta5][longi2-1][rta5].append({"3":[{"Nombre":"Scrum","Proyecto": 0,"Filtro": 0,"Trabajos": 0,"Resultado":0}]})
+                                        asignar[rta5][longi2-1][rta5].append({"4":[{"Nombre":"Git","Proyecto": 0,"Filtro": 0,"Trabajos": 0,"Resultado":0}]})
+                                        asignar[rta5][longi2-1][rta5].append({"5":[{"Nombre":"JavaScript","Proyecto": 0,"Filtro": 0,"Trabajos": 0,"Resultado":0}]})
+                                        asignar[rta5][longi2-1][rta5].append({"6":[{"Nombre":"Intro Back","Proyecto": 0,"Filtro": 0,"Trabajos": 0,"Resultado":0}]})
+                                        asignar[rta5][longi2-1][rta5].append({"7":[{"Nombre":"Intro BBDD","Proyecto": 0,"Filtro": 0,"Trabajos": 0,"Resultado":0}]})
+                                        asignar[rta5][longi2-1][rta5].append({"8":[{"Nombre":"MongoDBL","Proyecto": 0,"Filtro": 0,"Trabajos": 0,"Resultado":0}]})
+                                        asignar[rta5][longi2-1][rta5].append({"9":[{"Nombre":"JavaScript","Proyecto": 0,"Filtro": 0,"Trabajos": 0,"Resultado":0}]})
+                                        asignar[rta5][longi2-1][rta5].append({"10":[{"Nombre":"MySQL","Proyecto": 0,"Filtro": 0,"Trabajos": 0,"Resultado":0}]})
+                                        asignar[rta5][longi2-1][rta5].append({"11":[{"Nombre":"Express","Proyecto": 0,"Filtro": 0,"Trabajos": 0,"Resultado":0}]})
+                                    elif notas[rta1][i]["ruta"]==".Net":
+                                        asignar[rta5][longi2-1][rta5].append({"0":[{"Nombre":"Intro","Proyecto": 0,"Filtro": 0,"Trabajos": 0,"Resultado":0}]})
+                                        asignar[rta5][longi2-1][rta5].append({"1":[{"Nombre":"Python","Proyecto": 0,"Filtro": 0,"Trabajos": 0,"Resultado":0}]})
+                                        asignar[rta5][longi2-1][rta5].append({"2":[{"Nombre":"HTML/CSS","Proyecto": 0,"Filtro": 0,"Trabajos": 0,"Resultado":0}]})
+                                        asignar[rta5][longi2-1][rta5].append({"3":[{"Nombre":"Scrum","Proyecto": 0,"Filtro": 0,"Trabajos": 0,"Resultado":0}]})
+                                        asignar[rta5][longi2-1][rta5].append({"4":[{"Nombre":"Git","Proyecto": 0,"Filtro": 0,"Trabajos": 0,"Resultado":0}]})
+                                        asignar[rta5][longi2-1][rta5].append({"5":[{"Nombre":"JavaScript","Proyecto": 0,"Filtro": 0,"Trabajos": 0,"Resultado":0}]})
+                                        asignar[rta5][longi2-1][rta5].append({"6":[{"Nombre":"Intro Back","Proyecto": 0,"Filtro": 0,"Trabajos": 0,"Resultado":0}]})
+                                        asignar[rta5][longi2-1][rta5].append({"7":[{"Nombre":"Intro BBDD","Proyecto": 0,"Filtro": 0,"Trabajos": 0,"Resultado":0}]})
+                                        asignar[rta5][longi2-1][rta5].append({"8":[{"Nombre":"MySQL","Proyecto": 0,"Filtro": 0,"Trabajos": 0,"Resultado":0}]})
+                                        asignar[rta5][longi2-1][rta5].append({"9":[{"Nombre":"C#","Proyecto": 0,"Filtro": 0,"Trabajos": 0,"Resultado":0}]})
+                                        asignar[rta5][longi2-1][rta5].append({"10":[{"Nombre":"PostgreSQLL","Proyecto": 0,"Filtro": 0,"Trabajos": 0,"Resultado":0}]})
+                                        asignar[rta5][longi2-1][rta5].append({"11":[{"Nombre":".Net Core","Proyecto": 0,"Filtro": 0,"Trabajos": 0,"Resultado":0}]})
                                 else: 
                                     notas[rta1][i]["estado"]="no aprobado"
+                                    
                                 break
+                        guardarJSON(rta5,asignar)
                         guardarJSON(rta1,notas)
                     elif inf==6:
+                        moduloestu=abrirJSONr("estudiantes")
+                        modulotrainer=abrirJSONr("trainers")
+                        modulogrupo=abrirJSONr("grupo")
+                        print("Estudiantes Incritos: ")
+                        for i in range(len(moduloestu["estudiantes"])):
+                            if moduloestu["estudiantes"][i]["estado"]=="Inscrito":
+                                print(moduloestu["estudiantes"][i]["Nombre"])
+                        print("Estudiantes Aprobados: ")
+                        for i in range(len(moduloestu["estudiantes"])):
+                            if moduloestu["estudiantes"][i]["estado"]=="aprobado":
+                                print(moduloestu["estudiantes"][i]["Nombre"])
+                        print("Trainers trabajando en Campuslands: ")
+                        for i in range(len(modulotrainer["trainers"])):
+                            print(modulotrainer["trainers"][i]["Nombre"])
+                        print("Campers con rendimiento bajo: ")
+                        for i in range(len(moduloestu["estudiantes"])):
+                            if moduloestu["estudiantes"][i]["riesgo"]=="alto":
+                                print(moduloestu["estudiantes"][i]["riesgo"])
+                        print("Campers y Trainer asignados a un salon: ")
+                        for i in range(len(modulogrupo["grupo"])):
+                            print("Grupo ",i+1)
+                            print("Trainer: ", modulogrupo["grupo"][i]["trainer"])
+                            print("Estudiantes: ")
+                            for q in range(len(modulogrupo["grupo"][i]["estudiantes"])):
+                                print(modulogrupo["grupo"][i]["estudiantes"][q]["Nombre"])
+                        rta1="notas"
+                        notas={}
+                        notas=abrirJSONr(rta1)
+                        for i in range(len(notas[rta1])):
+                            print(notas[rta1][i]["Nombre"])
+                            for q in range (12):
+                                b=str(q)
+                                print(notas[rta1][i][rta1][q][b][0]["Nombre"])
+                                c=notas[rta1][i][rta1][q][b][0]["Resultado"]
+                                if c<60:
+                                    print("No aprobado")
+                                elif c>=60:
+                                    print("Aprobado")
+                            print("")
+                    elif inf==7:
                         tru=False
                         lie=False
     elif x==4:  

@@ -7,108 +7,270 @@
                 {
                     "0": [
                         {
-                            "Proyecto": 80,
-                            "Filtro": 90,
-                            "Trabajos": 100
+                            "Nombre": "Intro",
+                            "Proyecto": 0,
+                            "Filtro": 0,
+                            "Trabajos": 0,
+                            "Resultado": 0
                         }
                     ]
                 },
                 {
                     "1": [
                         {
-                            "Proyecto": 80,
-                            "Filtro": 90,
-                            "Trabajos": 100
+                            "Nombre": "Python",
+                            "Proyecto": 0,
+                            "Filtro": 0,
+                            "Trabajos": 0,
+                            "Resultado": 0
                         }
                     ]
                 },
                 {
                     "2": [
                         {
-                            "Proyecto": 80,
-                            "Filtro": 90,
-                            "Trabajos": 100
+                            "Nombre": "HTML/CSS",
+                            "Proyecto": 0,
+                            "Filtro": 0,
+                            "Trabajos": 0,
+                            "Resultado": 0
                         }
                     ]
                 },
                 {
                     "3": [
                         {
-                            "Proyecto": 80,
-                            "Filtro": 90,
-                            "Trabajos": 100
+                            "Nombre": "Scrum",
+                            "Proyecto": 0,
+                            "Filtro": 0,
+                            "Trabajos": 0,
+                            "Resultado": 0
                         }
                     ]
                 },
                 {
                     "4": [
                         {
-                            "Proyecto": 80,
-                            "Filtro": 90,
-                            "Trabajos": 100
+                            "Nombre": "Git",
+                            "Proyecto": 0,
+                            "Filtro": 0,
+                            "Trabajos": 0,
+                            "Resultado": 0
                         }
                     ]
                 },
                 {
                     "5": [
                         {
-                            "Proyecto": 80,
-                            "Filtro": 90,
-                            "Trabajos": 100
+                            "Nombre": "JavaScript",
+                            "Proyecto": 0,
+                            "Filtro": 0,
+                            "Trabajos": 0,
+                            "Resultado": 0
                         }
                     ]
                 },
                 {
                     "6": [
                         {
-                            "Proyecto": 80,
-                            "Filtro": 90,
-                            "Trabajos": 100
+                            "Nombre": "Intro Back",
+                            "Proyecto": 0,
+                            "Filtro": 0,
+                            "Trabajos": 0,
+                            "Resultado": 0
                         }
                     ]
                 },
                 {
                     "7": [
                         {
-                            "Proyecto": 80,
-                            "Filtro": 90,
-                            "Trabajos": 100
+                            "Nombre": "Intro BBDD",
+                            "Proyecto": 0,
+                            "Filtro": 0,
+                            "Trabajos": 0,
+                            "Resultado": 0
                         }
                     ]
                 },
                 {
                     "8": [
                         {
-                            "Proyecto": 80,
-                            "Filtro": 90,
-                            "Trabajos": 100
+                            "Nombre": "MySQL",
+                            "Proyecto": 0,
+                            "Filtro": 0,
+                            "Trabajos": 0,
+                            "Resultado": 0
                         }
                     ]
                 },
                 {
                     "9": [
                         {
-                            "Proyecto": 100,
-                            "Filtro": 90,
-                            "Trabajos": 100
+                            "Nombre": "Java",
+                            "Proyecto": 0,
+                            "Filtro": 0,
+                            "Trabajos": 0,
+                            "Resultado": 0
                         }
                     ]
                 },
                 {
                     "10": [
                         {
-                            "Proyecto": 80,
-                            "Filtro": 90,
-                            "Trabajos": 100
+                            "Nombre": "PostgreSQL",
+                            "Proyecto": 0,
+                            "Filtro": 0,
+                            "Trabajos": 0,
+                            "Resultado": 0
                         }
                     ]
                 },
                 {
                     "11": [
                         {
-                            "Proyecto": 80,
-                            "Filtro": 90,
-                            "Trabajos": 100
+                            "Nombre": "Springboot",
+                            "Proyecto": 0,
+                            "Filtro": 0,
+                            "Trabajos": 0,
+                            "Resultado": 0
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "Nombre": "egarcito",
+            "ID": "2",
+            "notas": [
+                {
+                    "0": [
+                        {
+                            "Nombre": "Intro",
+                            "Proyecto": 0,
+                            "Filtro": 0,
+                            "Trabajos": 0,
+                            "Resultado": 0
+                        }
+                    ]
+                },
+                {
+                    "1": [
+                        {
+                            "Nombre": "Python",
+                            "Proyecto": 0,
+                            "Filtro": 0,
+                            "Trabajos": 0,
+                            "Resultado": 0
+                        }
+                    ]
+                },
+                {
+                    "2": [
+                        {
+                            "Nombre": "HTML/CSS",
+                            "Proyecto": 0,
+                            "Filtro": 0,
+                            "Trabajos": 0,
+                            "Resultado": 0
+                        }
+                    ]
+                },
+                {
+                    "3": [
+                        {
+                            "Nombre": "Scrum",
+                            "Proyecto": 0,
+                            "Filtro": 0,
+                            "Trabajos": 0,
+                            "Resultado": 0
+                        }
+                    ]
+                },
+                {
+                    "4": [
+                        {
+                            "Nombre": "Git",
+                            "Proyecto": 0,
+                            "Filtro": 0,
+                            "Trabajos": 0,
+                            "Resultado": 0
+                        }
+                    ]
+                },
+                {
+                    "5": [
+                        {
+                            "Nombre": "JavaScript",
+                            "Proyecto": 0,
+                            "Filtro": 0,
+                            "Trabajos": 0,
+                            "Resultado": 0
+                        }
+                    ]
+                },
+                {
+                    "6": [
+                        {
+                            "Nombre": "Intro Back",
+                            "Proyecto": 0,
+                            "Filtro": 0,
+                            "Trabajos": 0,
+                            "Resultado": 0
+                        }
+                    ]
+                },
+                {
+                    "7": [
+                        {
+                            "Nombre": "Intro BBDD",
+                            "Proyecto": 0,
+                            "Filtro": 0,
+                            "Trabajos": 0,
+                            "Resultado": 0
+                        }
+                    ]
+                },
+                {
+                    "8": [
+                        {
+                            "Nombre": "MongoDBL",
+                            "Proyecto": 0,
+                            "Filtro": 0,
+                            "Trabajos": 0,
+                            "Resultado": 0
+                        }
+                    ]
+                },
+                {
+                    "9": [
+                        {
+                            "Nombre": "JavaScript",
+                            "Proyecto": 0,
+                            "Filtro": 0,
+                            "Trabajos": 0,
+                            "Resultado": 0
+                        }
+                    ]
+                },
+                {
+                    "10": [
+                        {
+                            "Nombre": "MySQL",
+                            "Proyecto": 0,
+                            "Filtro": 0,
+                            "Trabajos": 0,
+                            "Resultado": 0
+                        }
+                    ]
+                },
+                {
+                    "11": [
+                        {
+                            "Nombre": "Express",
+                            "Proyecto": 0,
+                            "Filtro": 0,
+                            "Trabajos": 0,
+                            "Resultado": 0
                         }
                     ]
                 }

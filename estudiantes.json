@@ -11,6 +11,18 @@
             "estado": "aprobado",
             "riesgo": "sigma",
             "ruta": "Java"
+        },
+        {
+            "ID": "2",
+            "Nombre": "egarcito",
+            "Apellido": "barragan",
+            "direccion": "carrera27",
+            "acudiente": "zzz",
+            "celular": "83923",
+            "fijo": "213923",
+            "estado": "aprobado",
+            "riesgo": "Nulo",
+            "ruta": "NodeJS"
         }
     ]
 }
