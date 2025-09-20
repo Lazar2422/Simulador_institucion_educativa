@@ -36,14 +36,14 @@ El sistema utiliza **archivos JSON locales** para almacenar la información, ase
    git clone https://github.com/tu-usuario/nombre-del-proyecto.git
    ```
 2. Navegar al directorio del proyecto:
-``` bash
-cd nombre-del-proyecto
-```
+   ``` bash
+   cd nombre-del-proyecto
+   ```
 
 3. Ejecutar la aplicación:
-``` bash
-python main.py
-```
+   ``` bash
+   python main.py
+   ```
 
 ## [VIdeo sustentacion](https://drive.google.com/drive/folders/1bq5sQkVOSaRIHKvEWS4m7a263K_x71IS?usp=sharing)
 
